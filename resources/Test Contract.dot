@@ -11,15 +11,26 @@
     edge[dir=black,arrowtail=empty]
 
 
-2732442621024 -> "pragma solidity ^0.8.0;:str" [label="code:0" arrowtail=diamond dir=both]
-2732442621024 -> "contract Hello {:str" [label="code:1" arrowtail=diamond dir=both]
-2732442621024 -> "string public message;:str" [label="code:2" arrowtail=diamond dir=both]
-2732442621024 -> 2732442621168 [label="code:3" arrowtail=diamond dir=both]
-2732442621168[label="{:Annotation|+identifier:str='sol V8   '\l+uniqueCode:list=['bytes1 = foo;','function Inbox(strin...','message = initialMes...','\}']\l}"]
-2732442621024 -> "string goo;:str" [label="code:4" arrowtail=diamond dir=both]
-2732442621024 -> 2732442621360 [label="code:5" arrowtail=diamond dir=both]
-2732442621360[label="{:Annotation|+identifier:str='sol \>=V7'\l+uniqueCode:list=['byte = foo;','function Inbox(strin...','message = initialMes...','\}']\l}"]
-2732442621024 -> "}:str" [label="code:6" arrowtail=diamond dir=both]
-2732442621024[label="{:Contract|+startIdentifier:str='1st If identifier'\l}"]
+1845945406656 -> 1845945406800 [label="code:0" arrowtail=diamond dir=both]
+1845945406800[label="{:Annotation|+identifier:str='sol_V8   \\n'\l+uniqueCode:list=['pragma solidity ^0.8...']\l}"]
+1845945406656 -> 1845945406944 [label="code:1" arrowtail=diamond dir=both]
+1845945406944[label="{:Annotation|+identifier:str='sol_V7 \\n'\l+uniqueCode:list=['pragma solidity ^0.7...']\l}"]
+1845945406656 -> "
+
+contract Hello {
+:str" [label="code:2" arrowtail=diamond dir=both]
+1845945406656 -> "    string public message;
+:str" [label="code:3" arrowtail=diamond dir=both]
+1845945406656 -> 1845945407616 [label="code:4" arrowtail=diamond dir=both]
+1845945407616[label="{:Annotation|+identifier:str='sol_V8   \\n'\l+uniqueCode:list=['    bytes1 = foo;\\...','    function Inbox(s...','        message = in...','    \}\\n']\l}"]
+1845945406656 -> "
+
+    string goo;
+:str" [label="code:5" arrowtail=diamond dir=both]
+1845945406656 -> 1845945407760 [label="code:6" arrowtail=diamond dir=both]
+1845945407760[label="{:Annotation|+identifier:str='sol_V7\\n'\l+uniqueCode:list=['    byte = foo;\\n','    function Inbox(s...','        message = in...','    \}\\n']\l}"]
+1845945406656 -> "
+}:str" [label="code:7" arrowtail=diamond dir=both]
+1845945406656[label="{:Contract|+startIdentifier:list=['ALL']\l}"]
 
 }
