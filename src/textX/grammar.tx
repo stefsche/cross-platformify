@@ -1,0 +1,30 @@
+Contract:
+  '@START' startIdentifier=StartIdentifier
+  (code=Annotation|code=CommonCode)*
+;
+
+Annotation:
+  '@IF' identifier=Identifier
+  uniqueCode+=UniqueCode
+  '@END'
+;
+
+CommonCode:
+  /(?!@IF).*$/
+;
+
+UniqueCode:
+  /(?!@END.*).*$/
+;
+
+StartIdentifier:
+  /(?<=@START ).+$/
+;
+
+Identifier:
+  /(?<=@IF ).+$/
+;
+
+Comment:
+  /\/\/.*$/
+;

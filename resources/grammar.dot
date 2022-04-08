@@ -1,0 +1,41 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2732669181472[ label="{Contract|startIdentifier: StartIdentifier\lcode: optional\<list[OBJECT]\>\l}"]
+
+2732669173920[ label="{Annotation|identifier: Identifier\luniqueCode: list[UniqueCode]\l}"]
+
+
+
+2732669176752[ label="{*OBJECT|}"]
+
+match_rules [ shape=plaintext, label=< <table>
+	<tr>
+		<td><b>Comment</b></td><td>\/\/.*$</td>
+	</tr>
+	<tr>
+		<td><b>CommonCode</b></td><td>(?!@IF).*$</td>
+	</tr>
+	<tr>
+		<td><b>Identifier</b></td><td>(?&lt;=@IF ).+$</td>
+	</tr>
+	<tr>
+		<td><b>StartIdentifier</b></td><td>(?&lt;=@START ).+$</td>
+	</tr>
+	<tr>
+		<td><b>UniqueCode</b></td><td>(?!@END.*).*$</td>
+	</tr>
+</table> >]
+
+
+}
