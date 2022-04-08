@@ -1,4 +1,4 @@
-@START sol V8, sol <=V7
+@START ALL
 
 pragma solidity ^0.8.0;
 
@@ -14,7 +14,7 @@ contract Hello {
 
     string goo;
 
-    @IF sol <=V7
+    @IF sol less than V7
     byte = foo;
     function Inbox(string initialMessage) public {
         message = initialMessage;
