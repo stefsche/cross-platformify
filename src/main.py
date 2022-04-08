@@ -1,18 +1,7 @@
 from textx import metamodel_from_file
 from pathlib import Path
 import os
-
-curr_path = os.path.dirname(__file__)
-source_file_name = 'Test Contract'
-path_to_grammar = os.path.join(curr_path, 'textX', 'grammar.tx')
-path_to_resources = os.path.join(curr_path, '..', 'resources')
-path_to_contract = os.path.join(path_to_resources, source_file_name + '.sol')
-
-grammar = metamodel_from_file(path_to_grammar)
-contract = grammar.model_from_file(path_to_contract)
-
-start_identifiers = []
-identifier_list = []
+import sys
 
 def store_identifiers(contract):
     #store all start identifiers
@@ -59,7 +48,10 @@ def generate_file():
         file.close()
 
 def open_file(identifier):
-    p = path_to_resources + '\\' + source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
+    if source_file_dir != '':
+        p = source_file_dir + '\\' + source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
+    else:
+        p = source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
     try:
         if Path(p).exists():
             file = open(p, 'w')
@@ -69,14 +61,36 @@ def open_file(identifier):
     except:
         raise Exception('Identifier \'' + identifier + '\' contains one or more characters which are illegal in file names')
 
-#store all identifiers
-store_identifiers(contract)
+def main():
+    #ensure proper cli usage
+    if len(sys.argv) != 2:
+        raise Exception('Invalid argument length. Usage: python main.py <path to source code>')
+    
+    #store all identifiers
+    store_identifiers(contract)
 
-if 'ALL' in start_identifiers:
-    #output file for each identifier
-    generate_all_files()
-else:
-    #check that at least one start identifier matches at least one identifier in contract
-    check_identifiers()
-    #output single file for only the specified annotations
-    generate_file()
+    if 'ALL' in start_identifiers:
+        #output file for each identifier
+        generate_all_files()
+    else:
+        #check that at least one start identifier matches at least one identifier in contract
+        check_identifiers()
+        #output single file for only the specified annotations
+        generate_file()
+
+#setting all neccessary paths
+source_file_path = sys.argv[1]
+source_file_name = os.path.basename(os.path.splitext(source_file_path)[0])
+source_file_dir = os.path.dirname(source_file_path)
+curr_path = os.path.dirname(__file__)
+path_to_grammar = os.path.join(curr_path, 'textX', 'grammar.tx')
+
+#initialize TextX metamodel and generate the contract model
+grammar = metamodel_from_file(path_to_grammar)
+contract = grammar.model_from_file(source_file_path)
+
+#initialize empty lists to hold identifiers
+start_identifiers = []
+identifier_list = []
+
+main()

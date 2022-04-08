@@ -11,29 +11,26 @@
     edge[dir=black,arrowtail=empty]
 
 
-2732669181472[ label="{Contract|startIdentifier: StartIdentifier\lcode: optional\<list[OBJECT]\>\l}"]
+1735875889152[ label="{Contract|startIdentifier: list[StartIdentifier]\lcode: optional\<list[OBJECT]\>\l}"]
 
-2732669173920[ label="{Annotation|identifier: Identifier\luniqueCode: list[UniqueCode]\l}"]
+1735875893872[ label="{Annotation|identifier: Identifier\luniqueCode: list[UniqueCode]\l}"]
 
 
 
-2732669176752[ label="{*OBJECT|}"]
+1735875916528[ label="{*OBJECT|}"]
 
 match_rules [ shape=plaintext, label=< <table>
 	<tr>
-		<td><b>Comment</b></td><td>\/\/.*$</td>
+		<td><b>CommonCode</b></td><td>\s* (?!@IF).*\r?\n?</td>
 	</tr>
 	<tr>
-		<td><b>CommonCode</b></td><td>(?!@IF).*$</td>
+		<td><b>Identifier</b></td><td>.+\r?\n?</td>
 	</tr>
 	<tr>
-		<td><b>Identifier</b></td><td>(?&lt;=@IF ).+$</td>
+		<td><b>StartIdentifier</b></td><td>[^,\r?\n?]*</td>
 	</tr>
 	<tr>
-		<td><b>StartIdentifier</b></td><td>(?&lt;=@START ).+$</td>
-	</tr>
-	<tr>
-		<td><b>UniqueCode</b></td><td>(?!@END.*).*$</td>
+		<td><b>UniqueCode</b></td><td>\s* (?!@END).*\r?\n?</td>
 	</tr>
 </table> >]
 
