@@ -4,19 +4,24 @@ Contract:
 ;
 
 Annotation:
-  '@IF ' identifier=Identifier
+  '@@ ' identifier=SingleLineIdentifier uniqueCode+=SingleLineCode |
+  '@IF ' identifier+=Identifier[',']
   uniqueCode+=UniqueCode
   '@END'
 ;
 
 CommonCode[noskipws]:
   /\s*/
-  /(?!@IF).*\r?\n?/
+  /(?!@IF).*$/
 ;
 
 UniqueCode[noskipws]:
   /\s*/
-  /(?!@END).*\r?\n?/
+  /(?!@END).*$/
+;
+
+SingleLineCode[noskipws]:
+  /[^\s]+.*/
 ;
 
 StartIdentifier:
@@ -24,5 +29,9 @@ StartIdentifier:
 ;
 
 Identifier:
-  /.+\r?\n?/
+  /[^,\r?\n?]*/
+;
+
+SingleLineIdentifier[noskipws]:
+  /[^\s]+[\t ]+/
 ;

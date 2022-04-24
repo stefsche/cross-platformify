@@ -11,7 +11,9 @@ def store_identifiers(contract):
     #store all identifiers in contract
     for code in contract.code:
         if hasattr(code, 'identifier'):
-            identifier_list.append(code.identifier.strip())
+            for elem in code.identifier:
+                if elem.strip() not in identifier_list:
+                    identifier_list.append(elem.strip())
 
 def check_identifiers():
     check = False
@@ -26,12 +28,13 @@ def generate_all_files():
     for identifier in identifier_list:
         file = open_file(identifier)
         for code in contract.code:
-            if hasattr(code, 'identifier'):
-                if identifier == code.identifier.strip():
+            if not hasattr(code, 'identifier'):
+                file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
+                continue
+            for elem in code.identifier:
+                if identifier == elem.strip():
                     for unique_code in code.uniqueCode:
                         file.write(unique_code.rstrip().replace('\n', '').replace('\r', '') + '\n')
-            else:
-                file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
         file.close()
 
 def generate_file():
@@ -39,17 +42,21 @@ def generate_file():
     for identifier in start_identifiers:
         file = open_file(identifier)
         for code in contract.code:
-            if hasattr(code, 'identifier'):
-                if identifier == code.identifier.strip():
+            if not hasattr(code, 'identifier'):
+                file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
+                continue
+            for elem in code.identifier:
+                if identifier == elem.strip():
                     for unique_code in code.uniqueCode:
                         file.write(unique_code.rstrip().replace('\n', '').replace('\r', '') + '\n')
-            else:
-                file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
         file.close()
 
 def open_file(identifier):
     if source_file_dir != '':
-        p = source_file_dir + '\\' + source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
+        p = source_file_dir + '\\' + 'Generated'
+        if not Path(p).exists():
+            os.makedirs(p)
+        p = p + '\\' + source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
     else:
         p = source_file_name + '_' + identifier.replace(' ', '_') + '.sol'
     try:
