@@ -1,0 +1,90 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+1857937320064 -> "
+//SPDX-License-Identifier: UNLICENSED:str" [label="code:0" arrowtail=diamond dir=both]
+1857937320064 -> 1857937319344 [label="code:1" arrowtail=diamond dir=both]
+1857937319344[label="{:Annotation|+identifier:list=['v4.21 ']\l+uniqueCode:list=['pragma solidity \>=0...']\l}"]
+1857937320064 -> 1857937319152 [label="code:2" arrowtail=diamond dir=both]
+1857937319152[label="{:Annotation|+identifier:list=['v4.22 ']\l+uniqueCode:list=['pragma solidity \>=0...']\l}"]
+1857937320064 -> 1857937319008 [label="code:3" arrowtail=diamond dir=both]
+1857937319008[label="{:Annotation|+identifier:list=['v5 ']\l+uniqueCode:list=['pragma solidity ^0.5...']\l}"]
+1857937320064 -> 1857937318864 [label="code:4" arrowtail=diamond dir=both]
+1857937318864[label="{:Annotation|+identifier:list=['v6 ']\l+uniqueCode:list=['pragma solidity ^0.6...']\l}"]
+1857937320064 -> 1857937320016 [label="code:5" arrowtail=diamond dir=both]
+1857937320016[label="{:Annotation|+identifier:list=['v7 ']\l+uniqueCode:list=['pragma solidity ^0.7...']\l}"]
+1857937320064 -> "
+
+contract Raffle{:str" [label="code:6" arrowtail=diamond dir=both]
+1857937320064 -> "
+    uint contractTime;:str" [label="code:7" arrowtail=diamond dir=both]
+1857937320064 -> "
+    address contractAddress;:str" [label="code:8" arrowtail=diamond dir=both]
+1857937320064 -> "
+    mapping(address => bool) public participated;:str" [label="code:9" arrowtail=diamond dir=both]
+1857937320064 -> "
+    mapping(address => string) public names;:str" [label="code:10" arrowtail=diamond dir=both]
+1857937320064 -> "
+    address[] participants;:str" [label="code:11" arrowtail=diamond dir=both]
+1857937320064 -> 1857937319824 [label="code:12" arrowtail=diamond dir=both]
+1857937319824[label="{:Annotation|+identifier:list=['v4.21']\l+uniqueCode:list=['\\n    function V4(...','\\n        contractT...','\\n        contractA...','\\n    \}']\l}"]
+1857937320064 -> 1857937319200 [label="code:13" arrowtail=diamond dir=both]
+1857937319200[label="{:Annotation|+identifier:list=['v4.22','v5','v6']\l+uniqueCode:list=['\\n    constructor(...','\\n        contractT...','\\n        contractA...','\\n    \}']\l}"]
+1857937320064 -> 1857937319680 [label="code:14" arrowtail=diamond dir=both]
+1857937319680[label="{:Annotation|+identifier:list=['v7']\l+uniqueCode:list=['\\n    constructor(...','\\n        contractT...','\\n        contractA...','\\n    \}']\l}"]
+1857937320064 -> 1857937318288 [label="code:15" arrowtail=diamond dir=both]
+1857937318288[label="{:Annotation|+identifier:list=['v4.21']\l+uniqueCode:list=['\\n    function pay...','\\n        require(a...','\\n        require(p...','\\n        require(c...','\\n        address w...','\\n        winnerAdd...','\\n        string wi...','\\n        contractT...','\\n        for(uint ...','\\n            parti...','\\n        \}','\\n        return wi...','\\n    \}']\l}"]
+1857937320064 -> 1857937319632 [label="code:16" arrowtail=diamond dir=both]
+1857937319632[label="{:Annotation|+identifier:list=['v4.22']\l+uniqueCode:list=['\\n    function pay...','\\n        require(a...','\\n        require(p...','\\n        require(c...','\\n        address w...','\\n        winnerAdd...','\\n        string wi...','\\n        contractT...','\\n        for(uint ...','\\n            parti...','\\n        \}','\\n        return st...','\\n    \}']\l}"]
+1857937320064 -> 1857937321696 [label="code:17" arrowtail=diamond dir=both]
+1857937321696[label="{:Annotation|+identifier:list=['v5','v6','v7']\l+uniqueCode:list=['\\n    function pay...','\\n        require(a...','\\n        require(p...','\\n        require(c...','\\n        address w...','\\n        payable(w...','\\n        string me...','\\n        contractT...','\\n        for(uint ...','\\n            parti...','\\n        \}','\\n        return st...','\\n    \}']\l}"]
+1857937320064 -> 1857937318432 [label="code:18" arrowtail=diamond dir=both]
+1857937318432[label="{:Annotation|+identifier:list=['v6','v7']\l+uniqueCode:list=['\\n    function ent...','\\n        require(a...','\\n        require(m...','\\n        require(p...','\\n        participa...','\\n        names[msg...','\\n        participa...','\\n    \}']\l}"]
+1857937320064 -> 1857937321600 [label="code:19" arrowtail=diamond dir=both]
+1857937321600[label="{:Annotation|+identifier:list=['v5']\l+uniqueCode:list=['\\n    function ent...','\\n        require(a...','\\n        require(m...','\\n        require(p...','\\n        participa...','\\n        names[msg...','\\n        participa...','\\n    \}']\l}"]
+1857937320064 -> 1857937321264 [label="code:20" arrowtail=diamond dir=both]
+1857937321264[label="{:Annotation|+identifier:list=['v4.21','v4.22']\l+uniqueCode:list=['\\n    function ent...','\\n        require(a...','\\n        require(m...','\\n        require(p...','\\n        participa...','\\n        names[msg...','\\n        participa...','\\n    \}']\l}"]
+1857937320064 -> "
+
+    function getBalance() public view returns (uint256) {:str" [label="code:21" arrowtail=diamond dir=both]
+1857937320064 -> "
+        return address(this).balance;:str" [label="code:22" arrowtail=diamond dir=both]
+1857937320064 -> "
+    }:str" [label="code:23" arrowtail=diamond dir=both]
+1857937320064 -> "
+    
+    function getContractTime() public view returns(uint){:str" [label="code:24" arrowtail=diamond dir=both]
+1857937320064 -> "
+        return contractTime;:str" [label="code:25" arrowtail=diamond dir=both]
+1857937320064 -> "
+    }:str" [label="code:26" arrowtail=diamond dir=both]
+1857937320064 -> "
+
+    function getRandParticipant() private view returns(uint){:str" [label="code:27" arrowtail=diamond dir=both]
+1857937320064 -> "
+        return random() % participants.length;:str" [label="code:28" arrowtail=diamond dir=both]
+1857937320064 -> "
+    }:str" [label="code:29" arrowtail=diamond dir=both]
+1857937320064 -> 1857937319872 [label="code:30" arrowtail=diamond dir=both]
+1857937319872[label="{:Annotation|+identifier:list=['v4.21']\l+uniqueCode:list=['\\n    function ran...','\\n        return ui...','\\n    \}']\l}"]
+1857937320064 -> 1857937321456 [label="code:31" arrowtail=diamond dir=both]
+1857937321456[label="{:Annotation|+identifier:list=['v4.22','v5','v6','v7']\l+uniqueCode:list=['\\n    function ran...','\\n        return ui...','\\n    \}']\l}"]
+1857937320064 -> 1857937321072 [label="code:32" arrowtail=diamond dir=both]
+1857937321072[label="{:Annotation|+identifier:list=['v6','v5','v4.22','v4.21']\l+uniqueCode:list=['\\n    function cal...','\\n        uint time...','\\n        if(time \...','\\n            retur...','\\n        \}','\\n        else\{','\\n            retur...','\\n        \}','\\n    \}','\\n\\n    function ...','\\n        return no...','\\n    \}','\\n\\n    function ...','\\n        return no...','\\n    \}']\l}"]
+1857937320064 -> 1857936899424 [label="code:33" arrowtail=diamond dir=both]
+1857936899424[label="{:Annotation|+identifier:list=['v7']\l+uniqueCode:list=['\\n    function cal...','\\n        uint time...','\\n        if(time \...','\\n            retur...','\\n        \}','\\n        else\{','\\n            retur...','\\n        \}','\\n    \}','\\n\\n    function ...','\\n        return bl...','\\n    \}','\\n\\n    function ...','\\n        return bl...','\\n    \}']\l}"]
+1857937320064 -> "
+}:str" [label="code:34" arrowtail=diamond dir=both]
+1857937320064[label="{:Contract|+startIdentifier:list=['ALL']\l}"]
+
+}
