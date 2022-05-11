@@ -9,7 +9,9 @@ Using cross-platformify, devs can merge code for different platforms into howeve
 
 ## Pre-requisites
 
-Python 3 or newer
+Python 3 or newer - [Install Python](https://www.python.org/downloads/)
+Package Installer for Python (pip) - [Install pip](https://pypi.org/project/pip/)
+TextX module `pip install textX` - [Install TextX](https://pypi.org/project/textX/)
 
 
 ## Installation and Usage
