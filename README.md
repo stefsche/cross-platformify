@@ -19,7 +19,7 @@ TextX module `pip install textX` - [Install TextX](https://pypi.org/project/text
  1. Clone this repository or download as zip. (Important to keep the same directory structure!)
  2. Open a terminal window and navigate to the **src** folder
  3. Run **main** file and enter the path to the file which should be processed
-Example: `python main.py "C:\Users\Documents\GitHub\cross-platformify\resources\Raffle.sol"`
+Example: `python main.py "../resources/Raffle.sol"`
  4. The generated files can be found in the same directory as the source file
 
 ## Grammar
