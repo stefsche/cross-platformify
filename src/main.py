@@ -24,22 +24,21 @@ def check_identifiers():
     if check == False:
         raise Exception('Start identifier/s not found in any of the annotation identifier/s')
 
-def generate_all_files():
-    for identifier in identifier_list:
-        file = open_file(identifier)
-        for code in contract.code:
-            if not hasattr(code, 'identifier'):
-                file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
-                continue
-            for elem in code.identifier:
-                if identifier == elem.strip():
-                    for unique_code in code.uniqueCode:
-                        file.write(unique_code.rstrip().replace('\n', '').replace('\r', '') + '\n')
-        file.close()
+# def generate_all_files():
+#     for identifier in identifier_list:
+#         file = open_file(identifier)
+#         for code in contract.code:
+#             if not hasattr(code, 'identifier'):
+#                 file.write(code.replace('\n', '').rstrip().replace('\r', '') + '\n')
+#                 continue
+#             for elem in code.identifier:
+#                 if identifier == elem.strip():
+#                     for unique_code in code.uniqueCode:
+#                         file.write(unique_code.rstrip().replace('\n', '').replace('\r', '') + '\n')
+#         file.close()
 
-def generate_file():
-    #output single file for only the specified annotations
-    for identifier in start_identifiers:
+def generate_files(list):
+    for identifier in list:
         file = open_file(identifier)
         for code in contract.code:
             if not hasattr(code, 'identifier'):
@@ -78,12 +77,12 @@ def main():
 
     if 'ALL' in start_identifiers:
         #output file for each identifier
-        generate_all_files()
+        generate_files(identifier_list)
     else:
         #check that at least one start identifier matches at least one identifier in contract
         check_identifiers()
         #output single file for only the specified annotations
-        generate_file()
+        generate_files(start_identifiers)
 
 #setting all neccessary paths
 source_file_path = sys.argv[1]
